@@ -22,6 +22,7 @@
 
 * JDK = JRE + Compiler + Dev Tools
 * JRE = JVM + Libraries
+<img width="900" height="450" alt="JDK" src="https://github.com/user-attachments/assets/477a3263-74f8-4c42-9dcc-673de9363051" />
 
 Example:
 
