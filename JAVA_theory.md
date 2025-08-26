@@ -18,7 +18,7 @@
     * Core class libraries (`java.lang`, `java.util`, etc.)
   * Does **not** include compiler or development tools.
 
-👉 **In short:**
+-  **In short:**
 
 * JDK = JRE + Compiler + Dev Tools
 * JRE = JVM + Libraries
@@ -30,7 +30,7 @@ Example:
 
 ---
 
-## **3. What is Java Virtual Machine (JVM)?**
+## **2. What is Java Virtual Machine (JVM)?**
 
 * JVM is a **specification and implementation** of a virtual machine that executes Java bytecode.
 * Acts as a **middle layer** between compiled Java code and the host OS.
@@ -43,7 +43,7 @@ Example:
 4. **Executing** code with memory management (heap, stack, garbage collection).
 5. **Providing portability** (same bytecode can run on any JVM implementation).
 
-👉 JVM makes Java **platform-independent**.
+-  JVM makes Java **platform-independent**.
 
 Example:
 
@@ -56,7 +56,7 @@ System.out.println("Hello World");
 
 ---
 
-## **4. What are the different types of memory areas allocated by JVM?**
+## **3. What are the different types of memory areas allocated by JVM?**
 
 JVM divides memory into several runtime areas:
 
@@ -86,11 +86,11 @@ JVM divides memory into several runtime areas:
 
    * Used when Java interacts with **native libraries** (C/C++ code).
 
-👉 Together, these ensure memory is managed efficiently and safely.
+-  Together, these ensure memory is managed efficiently and safely.
 
 ---
 
-## **5. What is JIT compiler?**
+## **4. What is JIT compiler?**
 
 * **JIT (Just-In-Time) Compiler** is part of JVM’s execution engine.
 * Normally, JVM **interprets** bytecode instruction by instruction → slower.
@@ -101,11 +101,11 @@ JVM divides memory into several runtime areas:
 * **Client Compiler (C1):** Optimized for faster startup.
 * **Server Compiler (C2):** Optimized for long-running applications.
 
-👉 Without JIT, Java would be as slow as pure interpreted languages like Python.
+-  Without JIT, Java would be as slow as pure interpreted languages like Python.
 
 ---
 
-## **6. How Java platform is different from other platforms?**
+## **5. How Java platform is different from other platforms?**
 
 * Other languages (like C, C++):
 
@@ -117,11 +117,11 @@ JVM divides memory into several runtime areas:
   * Compile source → **bytecode** → runs on JVM → JVM is OS-dependent, but bytecode isn’t.
   * Write once → run anywhere (as long as JVM exists for that platform).
 
-👉 JVM acts as a **bridge** between your code and OS.
+-  JVM acts as a **bridge** between your code and OS.
 
 ---
 
-## **7. Why people say that Java is ‘write once and run anywhere’ language?**
+## **6. Why people say that Java is ‘write once and run anywhere’ language?**
 
 * Java source code (`.java`) → compiled into **bytecode (`.class`)**.
 * Bytecode is **platform-independent**.
@@ -132,11 +132,11 @@ Example:
 * You compile on Windows → generate `Program.class`.
 * Copy it to Linux/Mac → run with JVM installed → works the same.
 
-👉 Unlike C/C++ (recompile for each OS), Java doesn’t need recompilation.
+-  Unlike C/C++ (recompile for each OS), Java doesn’t need recompilation.
 
 ---
 
-## **8. How does ClassLoader work in Java?**
+## **7. How does ClassLoader work in Java?**
 
 * **ClassLoader** is part of JVM responsible for **loading classes dynamically at runtime**.
 * Classes aren’t loaded into memory until required (lazy loading).
@@ -160,11 +160,11 @@ Example:
   * A ClassLoader first asks its parent to load the class.
   * If parent can’t find it, only then it tries to load.
 
-👉 This prevents core Java classes from being overridden by user classes.
+-  This prevents core Java classes from being overridden by user classes.
 
 ---
 
-## **9. Do you think ‘main’ used for main method is a keyword in Java?**
+## **8. Do you think ‘main’ used for main method is a keyword in Java?**
 
 * **No.**
 * `main` is just a **method name** defined by convention.
@@ -182,7 +182,7 @@ Example:
 
 ---
 
-## **10. Can we write main method as `public void static` instead of `public static void`?**
+## **9. Can we write main method as `public void static` instead of `public static void`?**
 
 * **No.**
 * Java compiler expects **modifiers in a particular order**.
@@ -199,8 +199,8 @@ Example:
 
   → Compilation error.
 
-👉 `public` = accessible everywhere,
-👉 `static` = called without creating object,
-👉 `void` = doesn’t return anything.
+-  `public` = accessible everywhere,
+-  `static` = called without creating object,
+-  `void` = doesn’t return anything.
 
 The **order matters** because Java language grammar defines it that way.
