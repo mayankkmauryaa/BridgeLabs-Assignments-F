@@ -1,40 +1,42 @@
 ## **1. What is the difference between JDK and JRE?**
 
-* **JDK (Java Development Kit):**
+- **JDK (Java Development Kit):**
 
-  * A full development kit required to write, compile, and debug Java programs.
-  * Includes:
+  - A full development kit required to write, compile, and debug Java programs.
+  - Includes:
 
-    * **Compiler (`javac`)** – converts source code (`.java`) into bytecode (`.class`).
-    * **JRE (Java Runtime Environment)** – to execute Java programs.
-    * **Development tools** like `javadoc`, `javap`, debugger, etc.
+    - **Compiler (`javac`)** – converts source code (`.java`) into bytecode (`.class`).
+    - **JRE (Java Runtime Environment)** – to execute Java programs.
+    - **Development tools** like `javadoc`, `javap`, debugger, etc.
 
-* **JRE (Java Runtime Environment):**
+- **JRE (Java Runtime Environment):**
 
-  * A subset of JDK. It provides only what is needed to **run** Java programs.
-  * Includes:
+  - A subset of JDK. It provides only what is needed to **run** Java programs.
+  - Includes:
 
-    * JVM (Java Virtual Machine)
-    * Core class libraries (`java.lang`, `java.util`, etc.)
-  * Does **not** include compiler or development tools.
+    - JVM (Java Virtual Machine)
+    - Core class libraries (`java.lang`, `java.util`, etc.)
 
--  **In short:**
+  - Does **not** include compiler or development tools.
 
-* JDK = JRE + Compiler + Dev Tools
-* JRE = JVM + Libraries
-<img width="900" height="450" alt="JDK" src="https://github.com/user-attachments/assets/477a3263-74f8-4c42-9dcc-673de9363051" />
+* **In short:**
+
+- JDK = JRE + Compiler + Dev Tools
+- JRE = JVM + Libraries
+
+![JVM vs JRE](https://media.geeksforgeeks.org/wp-content/uploads/20210218150010/JDK.png)
 
 Example:
 
-* If you want to just run Minecraft (written in Java) → you need **JRE**.
-* If you want to build Minecraft mods → you need **JDK**.
+- If you want to just run Minecraft (written in Java) → you need **JRE**.
+- If you want to build Minecraft mods → you need **JDK**.
 
 ---
 
 ## **2. What is Java Virtual Machine (JVM)?**
 
-* JVM is a **specification and implementation** of a virtual machine that executes Java bytecode.
-* Acts as a **middle layer** between compiled Java code and the host OS.
+- JVM is a **specification and implementation** of a virtual machine that executes Java bytecode.
+- Acts as a **middle layer** between compiled Java code and the host OS.
 
 ### **Responsibilities of JVM:**
 
@@ -44,7 +46,7 @@ Example:
 4. **Executing** code with memory management (heap, stack, garbage collection).
 5. **Providing portability** (same bytecode can run on any JVM implementation).
 
--  JVM makes Java **platform-independent**.
+- JVM makes Java **platform-independent**.
 
 Example:
 
@@ -52,8 +54,8 @@ Example:
 System.out.println("Hello World");
 ```
 
-* Compiled → `HelloWorld.class` (bytecode).
-* JVM on Windows/Linux/Mac will execute it differently but produce the same output.
+- Compiled → `HelloWorld.class` (bytecode).
+- JVM on Windows/Linux/Mac will execute it differently but produce the same output.
 
 ---
 
@@ -63,136 +65,141 @@ JVM divides memory into several runtime areas:
 
 1. **Method Area (MetaSpace in Java 8+):**
 
-   * Stores class-level information (metadata), static variables, method bytecodes.
-   * Shared among all threads.
+   - Stores class-level information (metadata), static variables, method bytecodes.
+   - Shared among all threads.
 
 2. **Heap Area:**
 
-   * Stores all **objects** and **instance variables**.
-   * Shared among all threads.
-   * Garbage Collector cleans unused objects from heap.
+   - Stores all **objects** and **instance variables**.
+   - Shared among all threads.
+   - Garbage Collector cleans unused objects from heap.
 
 3. **Stack Area:**
 
-   * Each thread gets its own **stack**.
-   * Stores method calls (frames), local variables, references to objects.
-   * Works on **LIFO (Last In, First Out)** principle.
+   - Each thread gets its own **stack**.
+   - Stores method calls (frames), local variables, references to objects.
+   - Works on **LIFO (Last In, First Out)** principle.
 
 4. **PC (Program Counter) Register:**
 
-   * Each thread has its own PC register.
-   * Holds the address of the current executing JVM instruction.
+   - Each thread has its own PC register.
+   - Holds the address of the current executing JVM instruction.
 
 5. **Native Method Stack:**
 
-   * Used when Java interacts with **native libraries** (C/C++ code).
+   - Used when Java interacts with **native libraries** (C/C++ code).
 
--  Together, these ensure memory is managed efficiently and safely.
+- Together, these ensure memory is managed efficiently and safely.
 
 ---
 
 ## **4. What is JIT compiler?**
 
-* **JIT (Just-In-Time) Compiler** is part of JVM’s execution engine.
-* Normally, JVM **interprets** bytecode instruction by instruction → slower.
-* JIT detects frequently executed bytecode (“hotspot methods”) and compiles them into **native machine code at runtime** → much faster execution.
+- **JIT (Just-In-Time) Compiler** is part of JVM’s execution engine.
+- Normally, JVM **interprets** bytecode instruction by instruction → slower.
+- JIT detects frequently executed bytecode (“hotspot methods”) and compiles them into **native machine code at runtime** → much faster execution.
 
 ### Types of JIT Compilers in JVM:
 
-* **Client Compiler (C1):** Optimized for faster startup.
-* **Server Compiler (C2):** Optimized for long-running applications.
+- **Client Compiler (C1):** Optimized for faster startup.
+- **Server Compiler (C2):** Optimized for long-running applications.
 
--  Without JIT, Java would be as slow as pure interpreted languages like Python.
+* Without JIT, Java would be as slow as pure interpreted languages like Python.
 
 ---
 
 ## **5. How Java platform is different from other platforms?**
 
-* Other languages (like C, C++):
+- Other languages (like C, C++):
 
-  * Compile source → machine code → runs directly on **OS-specific hardware**.
-  * Hence platform-dependent (Windows binary won’t run on Linux).
+  - Compile source → machine code → runs directly on **OS-specific hardware**.
+  - Hence platform-dependent (Windows binary won’t run on Linux).
 
-* Java:
+- Java:
 
-  * Compile source → **bytecode** → runs on JVM → JVM is OS-dependent, but bytecode isn’t.
-  * Write once → run anywhere (as long as JVM exists for that platform).
+  - Compile source → **bytecode** → runs on JVM → JVM is OS-dependent, but bytecode isn’t.
+  - Write once → run anywhere (as long as JVM exists for that platform).
 
--  JVM acts as a **bridge** between your code and OS.
+* JVM acts as a **bridge** between your code and OS.
 
 ---
 
 ## **6. Why people say that Java is ‘write once and run anywhere’ language?**
 
-* Java source code (`.java`) → compiled into **bytecode (`.class`)**.
-* Bytecode is **platform-independent**.
-* Any system with a **JVM implementation** (Windows/Linux/Mac/Android) can run the bytecode.
+- Java source code (`.java`) → compiled into **bytecode (`.class`)**.
+- Bytecode is **platform-independent**.
+- Any system with a **JVM implementation** (Windows/Linux/Mac/Android) can run the bytecode.
 
 Example:
 
-* You compile on Windows → generate `Program.class`.
-* Copy it to Linux/Mac → run with JVM installed → works the same.
+- You compile on Windows → generate `Program.class`.
+- Copy it to Linux/Mac → run with JVM installed → works the same.
 
--  Unlike C/C++ (recompile for each OS), Java doesn’t need recompilation.
+* Unlike C/C++ (recompile for each OS), Java doesn’t need recompilation.
 
 ---
 
 ## **7. How does ClassLoader work in Java?**
 
-* **ClassLoader** is part of JVM responsible for **loading classes dynamically at runtime**.
-* Classes aren’t loaded into memory until required (lazy loading).
+- **ClassLoader** is part of JVM responsible for **loading classes dynamically at runtime**.
+- Classes aren’t loaded into memory until required (lazy loading).
 
 ### **Types of ClassLoaders:**
 
 1. **Bootstrap ClassLoader**
 
-   * Loads Java core libraries (`rt.jar`, `java.lang.*`).
+   - Loads Java core libraries (`rt.jar`, `java.lang.*`).
+
 2. **Extension ClassLoader**
 
-   * Loads classes from extension directories (`javax.*`).
+   - Loads classes from extension directories (`javax.*`).
+
 3. **Application (System) ClassLoader**
 
-   * Loads classes from user’s classpath (project `.class` files).
+   - Loads classes from user’s classpath (project `.class` files).
 
 ### **How it works?**
 
-* **Parent Delegation Model:**
+- **Parent Delegation Model:**
 
-  * A ClassLoader first asks its parent to load the class.
-  * If parent can’t find it, only then it tries to load.
+  - A ClassLoader first asks its parent to load the class.
+  - If parent can’t find it, only then it tries to load.
 
--  This prevents core Java classes from being overridden by user classes.
+* This prevents core Java classes from being overridden by user classes.
 
 ---
 
 ## **8. Do you think ‘main’ used for main method is a keyword in Java?**
 
-* **No.**
-* `main` is just a **method name** defined by convention.
-* JVM specifically looks for a method with signature:
+- **No.**
+- `main` is just a **method name** defined by convention.
+- JVM specifically looks for a method with signature:
 
   ```java
   public static void main(String[] args)
   ```
-* It’s not a keyword; you can have another method like:
+
+- It’s not a keyword; you can have another method like:
 
   ```java
   public void main(int x) {}
   ```
-* But **only the standard `main(String[] args)` is entry point** for JVM.
+
+- But **only the standard `main(String[] args)` is entry point** for JVM.
 
 ---
 
 ## **9. Can we write main method as `public void static` instead of `public static void`?**
 
-* **No.**
-* Java compiler expects **modifiers in a particular order**.
-* Correct order:
+- **No.**
+- Java compiler expects **modifiers in a particular order**.
+- Correct order:
 
   ```java
   public static void main(String[] args)
   ```
-* If you write:
+
+- If you write:
 
   ```java
   public void static main(String[] args) {}
@@ -200,8 +207,8 @@ Example:
 
   → Compilation error.
 
--  `public` = accessible everywhere,
--  `static` = called without creating object,
--  `void` = doesn’t return anything.
+* `public` = accessible everywhere,
+* `static` = called without creating object,
+* `void` = doesn’t return anything. `return type`
 
 The **order matters** because Java language grammar defines it that way.
